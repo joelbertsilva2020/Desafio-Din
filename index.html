@@ -385,7 +385,7 @@ button{
 
 <div class="info">
 
-<h2>MISSÃO R$ 20.100</h2>
+<h2 id="tituloMissao"></h2>
 
 <div class="dashboard">
 
@@ -426,6 +426,14 @@ button{
 
 <script>
 
+/* ===========================
+   CONFIGURAÇÃO DA MISSÃO
+=========================== */
+
+const META = 20100;
+const TOTAL_MISSOES = 200;
+const OPERACAO = "Missão R$ 20.100";
+	
 let pagos = JSON.parse(localStorage.getItem("ironfortress")) || [];
 
 const grid=document.getElementById("grid");
@@ -468,22 +476,24 @@ grid.appendChild(d);
 
 function atualizar(){
 
-let total=pagos.reduce((a,b)=>a+b,0);
+	document.getElementById("tituloMissao").innerHTML = OPERACAO;
 
-document.getElementById("valor").innerHTML =
-"R$ " + total.toLocaleString('pt-BR');
+    let total = pagos.reduce((a,b)=>a+b,0);
 
-document.getElementById("faltam").innerHTML =
-"R$ " + (20100-total).toLocaleString('pt-BR');
+    document.getElementById("valor").innerHTML =
+    "R$ " + total.toLocaleString('pt-BR');
 
-document.getElementById("missoes").innerHTML =
-pagos.length + " / 200";
+    document.getElementById("faltam").innerHTML =
+    "R$ " + (META-total).toLocaleString('pt-BR');
 
-let percentual=((total/20100)*100).toFixed(1);
+    document.getElementById("missoes").innerHTML =
+    pagos.length + " / " + TOTAL_MISSOES;
 
-document.getElementById("progressFill").style.width=percentual+"%";
+    let percentual = ((total/META)*100).toFixed(1);
 
-document.getElementById("percentual").innerHTML=percentual+"%";
+    document.getElementById("progressFill").style.width = percentual + "%";
+
+    document.getElementById("percentual").innerHTML = percentual + "%";
 
 }
 
