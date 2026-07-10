@@ -164,33 +164,41 @@ canvas{
 
 .meta-badge{
 
-    min-width:95px;
+    display:flex;
 
-    background:rgba(255,255,255,.05);
+    align-items:center;
 
-    border:1px solid rgba(0,255,102,.35);
+    gap:8px;
+
+    padding:6px 12px;
+
+    border:2px dashed rgba(0,255,102,.35);
 
     border-radius:12px;
 
-    padding:8px 12px;
+    background:rgba(255,255,255,.03);
 
-    text-align:center;
-
-    box-shadow:0 0 10px rgba(0,255,102,.15);
+    white-space:nowrap;
 
 }
 
-.meta-badge small{
+.meta-label{
 
-    display:block;
+    font-size:11px;
 
-    color:#8effc8;
-
-    font-size:10px;
+    font-weight:700;
 
     letter-spacing:1px;
 
-    margin-bottom:4px;
+    color:#8effc8;
+
+}
+
+.meta-dot{
+
+    color:#00ff66;
+
+    opacity:.7;
 
 }
 
@@ -198,7 +206,7 @@ canvas{
 
     color:#00ff66;
 
-    font-size:18px;
+    font-size:16px;
 
     font-weight:bold;
 
@@ -460,9 +468,14 @@ button{
     <h2 id="tituloMissao"></h2>
 
     <div class="meta-badge">
-        <small>META</small>
-        <span id="valorMeta"></span>
-    </div>
+
+    <span class="meta-label">META</span>
+
+    <span class="meta-dot">◆</span>
+
+    <span id="valorMeta"></span>
+
+</div>
 
 </div>
 
