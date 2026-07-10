@@ -135,6 +135,76 @@ canvas{
 }
 
 /* ===========================
+   CABEÇALHO DA MISSÃO
+=========================== */
+
+.missao-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:20px 0 25px;
+
+    gap:15px;
+
+}
+
+#tituloMissao{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#fff;
+
+}
+
+.meta-badge{
+
+    min-width:95px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(0,255,102,.35);
+
+    border-radius:12px;
+
+    padding:8px 12px;
+
+    text-align:center;
+
+    box-shadow:0 0 10px rgba(0,255,102,.15);
+
+}
+
+.meta-badge small{
+
+    display:block;
+
+    color:#8effc8;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    margin-bottom:4px;
+
+}
+
+#valorMeta{
+
+    color:#00ff66;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
    DASHBOARD
 =========================== */
 
@@ -200,7 +270,7 @@ font-size:18px;
 
 font-weight:bold;
 
-}
+} 
 
 /* ===========================
    PROGRESS
@@ -385,7 +455,16 @@ button{
 
 <div class="info">
 
-<h2 id="tituloMissao"></h2>
+<div class="missao-header">
+
+    <h2 id="tituloMissao"></h2>
+
+    <div class="meta-badge">
+        <small>META</small>
+        <span id="valorMeta"></span>
+    </div>
+
+</div>
 
 <div class="dashboard">
 
@@ -476,24 +555,33 @@ grid.appendChild(d);
 
 function atualizar(){
 
-	document.getElementById("tituloMissao").innerHTML = TITULO;
+    // Cabeçalho
+    document.getElementById("tituloMissao").textContent = TITULO;
 
+    document.getElementById("valorMeta").textContent =
+        "R$ " + META.toLocaleString('pt-BR');
+
+    // Total acumulado
     let total = pagos.reduce((a,b)=>a+b,0);
 
-    document.getElementById("valor").innerHTML =
-    "R$ " + total.toLocaleString('pt-BR');
+    // Dashboard
+    document.getElementById("valor").textContent =
+        "R$ " + total.toLocaleString('pt-BR');
 
-    document.getElementById("faltam").innerHTML =
-    "R$ " + (META-total).toLocaleString('pt-BR');
+    document.getElementById("faltam").textContent =
+        "R$ " + (META-total).toLocaleString('pt-BR');
 
-    document.getElementById("missoes").innerHTML =
-    pagos.length + " / " + TOTAL_MISSOES;
+    document.getElementById("missoes").textContent =
+        pagos.length + " / " + TOTAL_MISSOES;
 
-    let percentual = ((total/META)*100).toFixed(1);
+    // Barra de progresso
+    let percentual = ((total / META) * 100).toFixed(1);
 
-    document.getElementById("progressFill").style.width = percentual + "%";
+    document.getElementById("progressFill").style.width =
+        percentual + "%";
 
-    document.getElementById("percentual").innerHTML = percentual + "%";
+    document.getElementById("percentual").textContent =
+        percentual + "%";
 
 }
 
