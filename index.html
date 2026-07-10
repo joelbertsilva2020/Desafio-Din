@@ -430,9 +430,9 @@ button{
    CONFIGURAÇÃO DA MISSÃO
 =========================== */
 
+const TITULO = "Construção de Patrimônio";
 const META = 20100;
 const TOTAL_MISSOES = 200;
-const OPERACAO = "Construção de Patrimônio";
 	
 let pagos = JSON.parse(localStorage.getItem("desafioDin")) || [];
 
@@ -476,7 +476,7 @@ grid.appendChild(d);
 
 function atualizar(){
 
-	document.getElementById("tituloMissao").innerHTML = OPERACAO;
+	document.getElementById("tituloMissao").innerHTML = TITULO;
 
     let total = pagos.reduce((a,b)=>a+b,0);
 
