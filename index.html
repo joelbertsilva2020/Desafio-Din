@@ -400,7 +400,7 @@ button{
     </div>
 
     <div class="card">
-        <small>FALTAM</small>
+        <small>RESTANTE</small>
         <h3 id="faltam"></h3>
     </div>
 
@@ -470,11 +470,14 @@ function atualizar(){
 
 let total=pagos.reduce((a,b)=>a+b,0);
 
-document.getElementById("valor").innerHTML="💰 Acumulado: R$ "+total.toLocaleString('pt-BR');
+document.getElementById("valor").innerHTML =
+"R$ " + total.toLocaleString('pt-BR');
 
-document.getElementById("faltam").innerHTML="🎯 Faltam: R$ "+(20100-total).toLocaleString('pt-BR');
+document.getElementById("faltam").innerHTML =
+"R$ " + (20100-total).toLocaleString('pt-BR');
 
-document.getElementById("missoes").innerHTML="✅ Missões: "+pagos.length+"/200";
+document.getElementById("missoes").innerHTML =
+pagos.length + " / 200";
 
 let percentual=((total/20100)*100).toFixed(1);
 
