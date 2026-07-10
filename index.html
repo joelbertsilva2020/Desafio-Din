@@ -434,7 +434,7 @@ const META = 20100;
 const TOTAL_MISSOES = 200;
 const OPERACAO = "Missão R$ 20.100";
 	
-let pagos = JSON.parse(localStorage.getItem("ironfortress")) || [];
+let pagos = JSON.parse(localStorage.getItem("desafioDin")) || [];
 
 const grid=document.getElementById("grid");
 
@@ -464,7 +464,7 @@ d.classList.add("pago");
 
 }
 
-localStorage.setItem("ironfortress",JSON.stringify(pagos));
+localStorage.setItem("desafioDin",JSON.stringify(pagos));
 
 atualizar();
 
@@ -501,7 +501,7 @@ function resetar(){
 
 if(confirm("Apagar todo o progresso?")){
 
-localStorage.removeItem("ironfortress");
+localStorage.removeItem("desafioDin");
 
 location.reload();
 
