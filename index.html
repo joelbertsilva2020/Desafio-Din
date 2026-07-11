@@ -475,6 +475,168 @@ button{
 }
 
 /* ===========================
+   ONBOARDING
+=========================== */
+
+.onboarding{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.onboarding-card{
+
+    width:90%;
+
+    max-width:420px;
+
+    background:#111;
+
+    border:1px solid rgba(0,255,102,.25);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 0 30px rgba(0,255,102,.15);
+
+}
+
+.onboarding-logo{
+
+    width:80px;
+
+    margin-bottom:18px;
+
+}
+
+.onboarding-card h2{
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+    font-size:26px;
+
+}
+
+.onboarding-card p{
+
+    color:#b7ffd8;
+
+    margin:12px 0;
+
+    line-height:1.5;
+
+    font-size:15px;
+
+}
+
+.privacy{
+
+    margin-top:18px;
+
+    font-size:12px;
+
+    color:#8effc8;
+
+    opacity:.75;
+
+    line-height:1.5;
+
+}
+
+.lock-icon{
+
+    width:15px;
+
+    height:15px;
+
+    margin-right:6px;
+
+    stroke:#00ff66;
+
+    stroke-width:2;
+
+    fill:none;
+
+    vertical-align:-2px;
+
+}
+
+.check{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:25px 0;
+
+    color:#8effc8;
+
+    font-size:14px;
+
+}
+
+.check input{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+.btn-start{
+
+    width:100%;
+
+    padding:14px;
+
+    background:linear-gradient(90deg,#00bfff,#00ff66);
+
+    color:#000;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-start:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:0 0 20px #00ff66;
+
+}
+
+/* ===========================
    RESPONSIVO
 =========================== */
 
@@ -535,6 +697,65 @@ button{
 
 <body>
 
+<!-- ===========================
+     ONBOARDING
+=========================== -->
+
+<div id="onboarding" class="onboarding">
+
+    <div class="onboarding-card">
+
+        <img src="logo.png" class="onboarding-logo" alt="Desafio Din">
+
+        <h2>Bem-vindo ao Desafio Din</h2>
+
+        <p>
+            Cada círculo representa uma missão concluída.
+        </p>
+
+        <p>
+            Complete as missões para atingir sua meta financeira.
+        </p>
+
+        <p>
+            Seu progresso fica salvo automaticamente neste dispositivo.
+        </p>
+
+		<p class="privacy">
+
+<svg class="lock-icon" viewBox="0 0 24 24" fill="none">
+
+<rect x="5" y="11" width="14" height="10" rx="2"/>
+
+<path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+
+</svg>
+
+Nenhum dado pessoal é coletado. Seu progresso é armazenado apenas neste dispositivo.
+
+</p>
+
+        <label class="check">
+
+            <input type="checkbox" id="naoMostrar">
+
+            Mostrar apenas na primeira vez
+
+        </label>
+
+        <button id="btnComecar" class="btn-start">
+
+            COMEÇAR
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ===========================
+     INICIO APP
+=========================== -->
 <canvas id="matrix"></canvas>
 
 <div class="container">
@@ -772,6 +993,34 @@ drops[i]++;
 }
 
 setInterval(draw,45);
+
+/* ===========================
+   ONBOARDING
+=========================== */
+
+const onboarding=document.getElementById("onboarding");
+
+const btnComecar=document.getElementById("btnComecar");
+
+const naoMostrar=document.getElementById("naoMostrar");
+
+if(localStorage.getItem("desafioDin_onboarding")=="ok"){
+
+    onboarding.style.display="none";
+
+}
+
+btnComecar.onclick=function(){
+
+    if(naoMostrar.checked){
+
+        localStorage.setItem("desafioDin_onboarding","ok");
+
+    }
+
+    onboarding.style.display="none";
+
+}
 
 </script>
 
