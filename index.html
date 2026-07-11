@@ -408,13 +408,15 @@ button{
 
     display:flex;
 
-    flex-direction:column;
+    justify-content:center;
 
-    gap:10px;
+    gap:12px;
 
-    margin-top:20px;
+    margin-bottom:20px;
 
-} 
+    flex-wrap:wrap;
+
+}
 
 .insta-icon{
 
@@ -436,9 +438,17 @@ button{
 
 .footer-btn{
 
-    display:block;
+    display:flex;
 
-    padding:12px;
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:10px 14px;
+
+    min-width:150px;
 
     border:1px solid #00ff66;
 
@@ -448,13 +458,11 @@ button{
 
     text-decoration:none;
 
+    background:rgba(255,255,255,.03);
+
     transition:.25s;
 
-	display:flex;
-
-align-items:center;
-
-justify-content:center;
+    font-size:13px;
 
 }
 
@@ -769,10 +777,6 @@ setInterval(draw,45);
 
 <footer class="footer">
 
-    <p>Desafio Din v1.0 • Tema Neo</p>
-
-    <p>Powered by Iniciativa &amp; Sucesso © 2026</p>
-
     <div class="footer-buttons">
 
         <a href="#" class="footer-btn">
@@ -795,7 +799,11 @@ Instagram
 
 </a>
 
-    </div>
+    </div> 
+
+    <p>Desafio Din v1.0 • Tema Neo</p>
+
+    <p>Powered by Iniciativa &amp; Sucesso © 2026</p>
 
 </footer>
 	
