@@ -475,6 +475,82 @@ button{
 }
 
 /* ===========================
+   AJUDA
+=========================== */
+
+.help-btn{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:25px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid #00ff66;
+
+    background:rgba(0,0,0,.75);
+
+    color:#00ff66;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+}
+
+.help-btn:hover{
+
+    box-shadow:0 0 15px #00ff66;
+
+}
+
+.help-box{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:75px;
+
+    width:250px;
+
+    background:#111;
+
+    border:1px solid rgba(0,255,102,.3);
+
+    border-radius:14px;
+
+    padding:18px;
+
+    display:none;
+
+    z-index:999;
+
+    color:#d8ffe8;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+.help-box h3{
+
+    margin-bottom:10px;
+
+    color:#00ff66;
+
+}
+
+/* ===========================
    ONBOARDING
 =========================== */
 
@@ -991,6 +1067,20 @@ drops[i]++;
 setInterval(draw,45);
 
 /* ===========================
+   AJUDA
+=========================== */
+const helpBtn=document.getElementById("helpBtn");
+
+const helpBox=document.getElementById("helpBox");
+
+helpBtn.onclick=function(){
+
+    helpBox.style.display=
+    helpBox.style.display=="block"?"none":"block";
+
+}
+
+/* ===========================
    ONBOARDING
 =========================== */
 
@@ -1051,6 +1141,24 @@ Instagram
     <p>Powered by Iniciativa &amp; Sucesso © 2026</p>
 
 </footer>
-	
+
+<!-- AJUDA -->
+
+<button id="helpBtn" class="help-btn">ⓘ</button>
+
+<div id="helpBox" class="help-box">
+
+<h3>Como funciona</h3>
+
+<p>• Cada círculo representa uma missão.</p>
+
+<p>• Toque para marcar uma missão concluída.</p>
+
+<p>• Seu progresso é salvo automaticamente.</p>
+
+<p>• Use "Resetar Missão" apenas para iniciar uma nova jornada.</p>
+
+</div>
+
 </body>
 </html>
