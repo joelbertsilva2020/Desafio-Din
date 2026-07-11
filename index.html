@@ -154,11 +154,13 @@ canvas{
 
 #tituloMissao{
 
-    font-size:32px;
+    font-size:22px;
 
-    line-height:1.15;
+    line-height:0.2;
 
     max-width:55%;
+
+	color: #8effc8;
 
 }
 
@@ -224,7 +226,7 @@ grid-template-columns:repeat(3,minmax(140px,1fr));
 
 gap:12px;
 
-margin:20px 0;
+margin:25px 0;
 
 align-items:stretch;
 
@@ -384,7 +386,14 @@ button{
 
 @media (max-width:768px){
 
-    .dashboard{
+    #tituloMissao{
+
+    font-size:24px;
+
+    max-width:50%;
+
+}
+	.dashboard{
         grid-template-columns:repeat(3,1fr);
         gap:8px;
     }
