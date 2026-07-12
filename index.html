@@ -215,6 +215,78 @@ canvas{
 }
 
 /* ===========================
+   AJUDA
+=========================== */
+
+.help-btn{
+
+    display:block;
+
+    margin:8px auto 18px auto;
+
+    width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    border:1px solid #00ff66;
+
+    background:transparent;
+
+    color:#00ff66;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    opacity:.7;
+
+}
+
+.help-btn:hover{
+
+    opacity:1;
+
+    background:rgba(0,255,102,.08);
+
+}
+
+.help-box{
+
+    display:none;
+
+    margin:0 auto 20px;
+
+    width:260px;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    background:rgba(0,0,0,.65);
+
+    border:1px solid rgba(0,255,102,.25);
+
+    color:#d8ffe8;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+    text-align:left;
+
+}
+
+.help-box strong{
+
+    color:#00ff66;
+
+}
+	
+/* ===========================
    DASHBOARD
 =========================== */
 
@@ -786,6 +858,20 @@ Nenhum dado pessoal é coletado. Seu progresso é armazenado automaticamente ape
 
     </div>
 
+	<button id="helpBtn" class="help-btn">i</button>
+
+<div id="helpBox" class="help-box">
+
+    <strong>Como funciona</strong>
+
+    <p>• Cada círculo representa um depósito.</p>
+
+    <p>• Toque para marcar a missão concluída.</p>
+
+    <p>• O progresso é salvo automaticamente.</p>
+
+</div>
+
 </div>
 
 <div class="info">
@@ -1050,6 +1136,23 @@ btnComecar.onclick=function(){
 
 }
 
+const helpBtn=document.getElementById("helpBtn");
+const helpBox=document.getElementById("helpBox");
+
+helpBtn.addEventListener("click",function(){
+
+    if(helpBox.style.display==="block"){
+
+        helpBox.style.display="none";
+
+    }else{
+
+        helpBox.style.display="block";
+
+    }
+
+});
+	
 </script>
 
 </body>
