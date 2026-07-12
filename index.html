@@ -215,78 +215,6 @@ canvas{
 }
 
 /* ===========================
-   AJUDA
-=========================== */
-
-.help-btn{
-
-    display:block;
-
-    margin:8px auto 18px auto;
-
-    width:24px;
-
-    height:24px;
-
-    border-radius:50%;
-
-    border:1px solid #00ff66;
-
-    background:transparent;
-
-    color:#00ff66;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    opacity:.7;
-
-}
-
-.help-btn:hover{
-
-    opacity:1;
-
-    background:rgba(0,255,102,.08);
-
-}
-
-.help-box{
-
-    display:none;
-
-    margin:0 auto 20px;
-
-    width:260px;
-
-    padding:14px;
-
-    border-radius:10px;
-
-    background:rgba(0,0,0,.65);
-
-    border:1px solid rgba(0,255,102,.25);
-
-    color:#d8ffe8;
-
-    font-size:12px;
-
-    line-height:1.5;
-
-    text-align:left;
-
-}
-
-.help-box strong{
-
-    color:#00ff66;
-
-}
-	
-/* ===========================
    DASHBOARD
 =========================== */
 
@@ -709,6 +637,82 @@ button{
 }
 
 /* ===========================
+   AJUDA
+=========================== */
+
+.help-modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:300px;
+
+    max-width:90%;
+
+    background:#111;
+
+    border:1px solid rgba(0,255,102,.25);
+
+    border-radius:14px;
+
+    padding:22px;
+
+    z-index:9999;
+
+    box-shadow:0 0 30px rgba(0,255,102,.18);
+
+}
+
+.help-modal h3{
+
+    color:#00ff66;
+
+    margin-bottom:15px;
+
+}
+
+.help-modal p{
+
+    color:#d8ffe8;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-bottom:10px;
+
+}
+
+.close-help{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#00ff66;
+
+    color:#000;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+	
+/* ===========================
    RESPONSIVO
 =========================== */
 
@@ -857,21 +861,7 @@ Nenhum dado pessoal é coletado. Seu progresso é armazenado automaticamente ape
         <span>ONLINE</span>
 
     </div>
-
-	<button id="helpBtn" class="help-btn">i</button>
-
-<div id="helpBox" class="help-box">
-
-    <strong>Como funciona</strong>
-
-    <p>• Cada círculo representa um depósito.</p>
-
-    <p>• Toque para marcar a missão concluída.</p>
-
-    <p>• O progresso é salvo automaticamente.</p>
-
-</div>
-
+	
 </div>
 
 <div class="info">
@@ -953,7 +943,23 @@ Instagram
 
 </a>
 
-    </div> 
+		<div class="footer-buttons">
+
+    <a href="#" class="footer-btn">
+        Outros desafios
+    </a>
+
+    <a href="#" class="footer-btn">
+        Instagram
+    </a>
+
+    <button id="helpBtn" class="footer-btn">
+        Ajuda
+    </button>
+
+</div>
+
+	</div> 
 
     <p>Desafio Din v1.0 • Tema Neo</p>
 
@@ -961,6 +967,30 @@ Instagram
 
 </footer>
 
+<div id="helpBox" class="help-modal">
+
+    <h3>Como Funciona</h3>
+
+    <p>
+        Cada círculo representa um depósito concluído.
+    </p>
+
+    <p>
+        Toque em um círculo para marcar a missão realizada.
+    </p>
+
+    <p>
+        Seu progresso é salvo automaticamente neste dispositivo.
+    </p>
+
+    <button id="closeHelp" class="close-help">
+
+        Fechar
+
+    </button>
+
+</div>
+	
 <script>
 	
 /* ===========================
@@ -1136,20 +1166,19 @@ btnComecar.onclick=function(){
 
 }
 
-const helpBtn=document.getElementById("helpBtn");
-const helpBox=document.getElementById("helpBox");
+const helpBtn = document.getElementById("helpBtn");
+const helpBox = document.getElementById("helpBox");
+const closeHelp = document.getElementById("closeHelp");
 
-helpBtn.addEventListener("click",function(){
+helpBtn.addEventListener("click", function(){
 
-    if(helpBox.style.display==="block"){
+    helpBox.style.display = "block";
 
-        helpBox.style.display="none";
+});
 
-    }else{
+closeHelp.addEventListener("click", function(){
 
-        helpBox.style.display="block";
-
-    }
+    helpBox.style.display = "none";
 
 });
 	
